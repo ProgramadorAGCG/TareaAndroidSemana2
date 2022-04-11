@@ -1,6 +1,7 @@
-package com.example.ejemplo2;
+package com.example.ejemplo2version2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements
-        View.OnClickListener {
-    Button btn;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements
         btn = (Button) findViewById(R.id.btnAceptar);
         btn.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View v) {
         EditText edtusu,edtpwd;
@@ -27,10 +29,11 @@ public class MainActivity extends AppCompatActivity implements
                 edtpwd.getText().toString().equals("123")){
             Toast.makeText(this,"¡BIENVENIDO!",Toast.LENGTH_LONG).show();
             Intent intent = new Intent (v.getContext(), MainActivity2.class);
-            startActivityForResult(intent, 0);
+            startActivity(intent);
             finish();
         }else{
             Toast.makeText(this,"DENEGADO",Toast.LENGTH_LONG).show();
         }
     }
+
 }
